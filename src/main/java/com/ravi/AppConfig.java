@@ -1,8 +1,7 @@
 package com.ravi;
 
-import java.net.URI;
-import java.net.URL;
-
+import net.sf.ehcache.CacheManager;
+import net.sf.ehcache.management.ManagementService;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,7 +15,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.core.io.Resource;
 
-import net.sf.ehcache.CacheManager;
+import javax.management.MBeanServer;
+import java.lang.management.ManagementFactory;
+import java.net.URL;
 
 
 /**
@@ -48,6 +49,9 @@ public class AppConfig extends SpringBootServletInitializer {
         try {
             URL url = cacheResource.getURL();
             cacheManager = new CacheManager(url);
+            MBeanServer mBeanServer = ManagementFactory.getPlatformMBeanServer();
+            ManagementService.registerMBeans(cacheManager, mBeanServer, true, true, false, true);
+
         }
         catch(Exception ioe){
             LOG.error("ERROR :: Error occurred while initializing cache manager. Cannot load the ehcache.xml file.", ioe);

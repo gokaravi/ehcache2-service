@@ -1,16 +1,15 @@
 package com.ravi.resource;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.Response;
-
+import com.ravi.cache.service.TeacherCacheService;
+import com.ravi.dto.Teachers;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.ravi.cache.service.TeacherCacheService;
-import com.ravi.dto.Teachers;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.Response;
 
 /**
  * Created by Ravi Goka on 11/18/2018.

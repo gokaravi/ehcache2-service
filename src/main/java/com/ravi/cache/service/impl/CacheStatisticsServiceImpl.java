@@ -8,28 +8,22 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import net.sf.ehcache.Statistics;
 
 @Component
-public class CacheStatisticsServiceImpl implements CacheStatisticsService {
+public class CacheStatisticsServiceImpl extends BaseCacheStatisticsServiceImpl implements CacheStatisticsService{
     private static final Logger LOG = LoggerFactory.getLogger(CacheStatisticsServiceImpl.class);
 
     @Autowired
     private CacheManager cacheManager;
 
-    public Statistics getCacheStatistics(String cacheName){
-        //CacheStatistics cacheStatistics = null;
-        Cache teacherCache = cacheManager.getCache(cacheName);
-        Statistics statistics = teacherCache.getStatistics();
-       /* cacheStatistics = new CacheStatistics();
-        cacheStatistics.setCacheHits(statistics.getCacheHits());
-        cacheStatistics.setAverageGetTime(statistics.getAverageGetTime());
-
+    public CacheStatistics getCacheStatistics(String cacheName){
 
         Cache teacherCache = cacheManager.getCache(cacheName);
-        String cacheStatistics = teacherCache.getStatistics().toString();
-        return cacheStatistics;*/
 
-        return statistics;
+        CacheStatistics cacheStatistics = getStatistics(teacherCache);
+
+        return cacheStatistics;
     }
+
+
 }

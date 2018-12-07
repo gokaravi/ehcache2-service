@@ -1,9 +1,8 @@
 package com.ravi.cache.service.impl;
 
-import static com.ravi.constants.CacheConstants.TEACHER_CACHE_ALIAS;
-import static com.ravi.constants.CacheConstants.TEACHER_CACHE_KEY;
-
-
+import com.ravi.cache.service.TeacherCacheService;
+import com.ravi.cache.service.TeacherService;
+import com.ravi.dto.Teachers;
 import net.sf.ehcache.Cache;
 import net.sf.ehcache.CacheManager;
 import net.sf.ehcache.Element;
@@ -12,9 +11,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.ravi.cache.service.TeacherCacheService;
-import com.ravi.cache.service.TeacherService;
-import com.ravi.dto.Teachers;
+import static com.ravi.constants.CacheConstants.TEACHER_CACHE_ALIAS;
+import static com.ravi.constants.CacheConstants.TEACHER_CACHE_KEY;
 
 /**
  * Created by Ravi Goka on 11/18/2018.

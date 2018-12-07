@@ -23,10 +23,10 @@ public class CacheStatistics implements Serializable {
 	private float averageRemoveTime;
 	private long cacheEvictions;
 	private long cacheGets;
-	private float cacheHitPercentage;
+	private double cacheHitPercentage;
 	private long cacheHits;
 	private long cacheMisses;
-	private float cacheMissPercentage;
+	private double cacheMissPercentage;
 	private long cachePuts;
 	private long cacheRemovals;
 
@@ -70,11 +70,11 @@ public class CacheStatistics implements Serializable {
 		this.cacheGets = cacheGets;
 	}
 
-	public float getCacheHitPercentage() {
+	public double getCacheHitPercentage() {
 		return cacheHitPercentage;
 	}
 
-	public void setCacheHitPercentage(float cacheHitPercentage) {
+	public void setCacheHitPercentage(double cacheHitPercentage) {
 		this.cacheHitPercentage = cacheHitPercentage;
 	}
 
@@ -94,11 +94,11 @@ public class CacheStatistics implements Serializable {
 		this.cacheMisses = cacheMisses;
 	}
 
-	public float getCacheMissPercentage() {
+	public double getCacheMissPercentage() {
 		return cacheMissPercentage;
 	}
 
-	public void setCacheMissPercentage(float cacheMissPercentage) {
+	public void setCacheMissPercentage(double cacheMissPercentage) {
 		this.cacheMissPercentage = cacheMissPercentage;
 	}
 
